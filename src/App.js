@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoItem from './components/TodoItem';
 import './styles.css';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  const [filter, setFilter] = useState('tous');
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text) => {
     const newTodo = {
@@ -25,9 +34,7 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
-  const [filter, setFilter] = useState('tous');
-
-    const filteredTodos = todos.filter(todo => {
+  const filteredTodos = todos.filter(todo => {
     if (filter === 'tous') return true;
     return todo.status === filter;
   });
