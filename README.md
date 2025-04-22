@@ -1,7 +1,7 @@
 # ToDoList
 
 A simple and interactive To-Do List application built with **React.js**.  
-This project allows users to manage their daily tasks efficiently by adding, updating, and deleting tasks based on their progress.
+This project allows users to manage their daily tasks efficiently by adding, updating, deleting, and filtering tasks based on their progress.
 
 ## ✨ Features
 
@@ -11,6 +11,7 @@ This project allows users to manage their daily tasks efficiently by adding, upd
   - **In Progress**
   - **Done**
 - ❌ Delete tasks when no longer needed
+- 🔍 **Filter tasks** by their current status
 - 💡 Clean and intuitive user interface built with React
 
 ## 🚀 Getting Started
